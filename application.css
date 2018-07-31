@@ -160,6 +160,11 @@ a:hover {
 .mhn-ui-page.page-lock {
     position: initial
 }
+/* 
+.mhn-ui-page.page-home{
+    opacity: 0;
+    transition: opacity .25s ease-in-out;
+} */
 .mhn-ui-page .mhn-ui-app-title-head {
     padding: 15px;
     font-size: 16px;

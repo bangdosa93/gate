@@ -10,11 +10,11 @@ mhnUI = {
     mhnUI.page.hide(), pattern = new PatternLock(".mhn-lock", {
       margin: 15
     }), $(".mhn-lock-title").html($(".mhn-lock-title").data("title")), pattern.checkForPattern("12369", function () {
-      $(".mhn-lock-title").html('<span class="mhn-lock-success">Yes! you unlocked pattern</span>'), $(".patt-holder").addClass("patt-success"), setTimeout(function () {
+      $(".mhn-lock-title").html('<span class="mhn-lock-success">Unlocked</span>'), $(".patt-holder").addClass("patt-success"), setTimeout(function () {
         pattern.reset(), mhnUI.message()
-      }, 1e3), mhnUI.page.show()
+      }, 1e3), setTimeout(function(){mhnUI.page.show()},300)
     }, function () {
-      $(".mhn-lock-title").html('<span class="mhn-lock-failure">Opps! pattern is not correct</span>'), $(".patt-holder").removeClass("patt-success"), setTimeout(function () {
+      $(".mhn-lock-title").html('<span class="mhn-lock-failure">Pattern Incorrect</span>'), $(".patt-holder").removeClass("patt-success"), setTimeout(function () {
         pattern.reset(), mhnUI.message()
       }, 2e3)
     })
@@ -42,10 +42,13 @@ mhnUI = {
   },
   page: {
     show: function (t) {
-      t = t ? t : "page-home", $(".mhn-ui-page").hide(), $(".mhn-ui-page." + t).show()
+      
+      t = t ? t : "page-home", setTimeout(function(){$(".mhn-ui-page").hide(), $(".mhn-ui-page." + t).fadeIn(500)},300);
+      
+    
     },
     hide: function (t) {
-      t = t ? t : "page-lock", $(".mhn-ui-page").hide(), $(".mhn-ui-page." + t).show()
+      t = t ? t : "page-lock", $(".mhn-ui-page").hide(), $(".mhn-ui-page." + t).fadeIn(500)
     }
   },
   filter: function () {
