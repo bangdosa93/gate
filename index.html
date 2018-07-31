@@ -15,7 +15,7 @@
   <link rel="stylesheet" href="secret.css">
   <link rel="stylesheet" href="application.css">
   
-   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
   <script src="application.js"></script>
   <script src="patternLock.js"></script>
@@ -39,8 +39,6 @@
       $('#clickON').addClass("btn-danger").removeClass("btn-success");
       $('#clickON').prop('disabled', false);
     };
-
-
 
     $(document).ready(function () {
       $('#clickON').on('touchstart', function (e) {
@@ -87,25 +85,11 @@
 
         }, 1000);
       })
-
-
-
     });
-
-
-
-
-
-
   </script>
-  
 </head>
 
 <body>
-  <!-- <div id="patternContainer"></div>
-  <script>
-    var lock = new PatternLock("#patternContainer");
-  </script> -->
   <div class="mhn-ui-wrap">
     <div class="mhn-ui-page page-lock">
       <div class="mhn-ui-date-time">
@@ -119,36 +103,8 @@
       </div>
     </div>
   
-    <div class="mhn-ui-page page-home">
-      <div class="mhn-ui-app-time">&nbsp;</div>
-      <div class="mhn-ui-app-title-head">
-        <span class="mhn-ui-page-title">Gate</span>
-       
-      </div>
-      <div class="mhn-ui-row mhn-ui-apps">
-        <div>
-          <h1>&nbsp;</h1>
-          
-          <div class="contents text-center">
-            <div class="contents text-center">
-              <img class="rounded img-fluid" style="-webkit-user-select: none;" src="http://stream.cateam.org/">
-              <br>
-              <button class="btn btn-danger" type="button" id="clickON">OPEN GATE</button>
-            </div>
-            
-          </div>
-          
-        </div>
-        
-      </div>
-     
-    </div>
-  
+    <div class="mhn-ui-page page-home"></div>
   </div>
-    
-  
-
-
 </body>
 
 </html>
