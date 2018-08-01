@@ -43,10 +43,10 @@ mhnUI = {
   page: {
     show: function (t) {
       
-      t = t ? t : "page-home", setTimeout(function(){$(".mhn-ui-page").hide(), $(".mhn-ui-page." + t).append(contents).fadeIn(500)},300);
+      t = t ? t : "page-home", setTimeout(function(){$(".mhn-ui-page").hide(), $(".mhn-ui-page." + t).fadeIn(500)},300);
       // t = t ? t : "page-home", setTimeout(function(){$(".mhn-ui-page").hide(), $('.mhn-ui-wrap').append(contents).fadeIn(500)},300);
-      console.log(contents);
-      console.log($('mhn-ui-wrap'));
+      // console.log(contents);
+      // console.log($('mhn-ui-wrap'));
     
     },
     hide: function (t) {

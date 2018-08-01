@@ -40,6 +40,7 @@
       $('#clickON').prop('disabled', false);
     };
 
+ 
     $(document).ready(function () {
       $('#clickON').on('touchstart', function (e) {
         var a = new XMLHttpRequest();
@@ -62,8 +63,9 @@
           signalOff();
         }, 1000);
       })
-
+      
       $('#clickON').on('click', function (e) {
+        
         var a = new XMLHttpRequest();
         a.open("GET", "pinon.php");
         a.onreadystatechange = function () {
@@ -85,7 +87,10 @@
 
         }, 1000);
       })
+    
     });
+  
+  
   </script>
 </head>
 
@@ -103,7 +108,22 @@
       </div>
     </div>
   
-    <div class="mhn-ui-page page-home"></div>
+    <div class="mhn-ui-page page-home">
+      <div class="mhn-ui-app-time">&nbsp;</div>
+        <div class="mhn-ui-app-title-head">
+          <span class="mhn-ui-page-title">Gate</span>
+        </div>
+        <div class="mhn-ui-row mhn-ui-apps">
+          <div>
+            <h1>&nbsp;</h1><div class="contents text-center">
+              <div class="contents text-center">
+                <img class="rounded img-fluid" style="-webkit-user-select: none;" src="http://stream.cateam.org/">
+                <br><button class="btn btn-danger" type="button" id="clickON">OPEN GATE</button>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
   </div>
 </body>
 
