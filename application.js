@@ -9,7 +9,7 @@ mhnUI = {
   lock: function () {
     mhnUI.page.hide(), pattern = new PatternLock(".mhn-lock", {
       margin: 15
-    }), $(".mhn-lock-title").html($(".mhn-lock-title").data("title")), pattern.checkForPattern("12369", function () {
+    }), $(".mhn-lock-title").html($(".mhn-lock-title").data("title")), pattern.checkForPattern("14523", function () {
       $(".mhn-lock-title").html('<span class="mhn-lock-success">Unlocked</span>'), $(".patt-holder").addClass("patt-success"), setTimeout(function () {
         pattern.reset(), mhnUI.message()
       }, 1e3), setTimeout(function(){mhnUI.page.show()},300)
