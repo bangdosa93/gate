@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<link rel="shortcut icon" href="favicon.png">
+	
+	<!-- To support old sizes -->
+	<link rel="apple-touch-icon" href="shortcut.png">
+	
+
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+	 crossorigin="anonymous">
+	<link rel="stylesheet" href="application.css">
+	<script type="text/javascript">
+		var signalOff = function () {
+
+			var b = new XMLHttpRequest();
+			b.open("GET", "./pinoff.php");
+			b.onreadystatechange = function () {
+				if (b.readyState == 4) {
+					if (b.status == 200) {
+					}
+					else {
+						alert("HTTP ERRORS");
+					}
+				}
+			}
+			b.send();
+
+			$('#clickON').addClass("btn-danger").removeClass("btn-success");
+			$('#clickON').prop('disabled',false);
+		};
+
+
+
+		$(document).ready(function () {
+			$('#clickON').on('touchstart',function (e) {
+				var a = new XMLHttpRequest();
+				a.open("GET", "./pinon.php");
+				a.onreadystatechange = function () {
+					if (a.readyState == 4) {
+						if (a.status == 200) {
+						}
+						else {
+							alert("HTTP ERRORS");
+						}
+					}
+				}
+				a.send();
+				
+				$('#clickON').addClass("btn-success").removeClass("btn-danger");
+				
+				setTimeout(function () { 
+					$('#clickON').prop('disabled',true);
+					signalOff(); 
+				}, 1000);	
+			})
+
+			$('#clickON').on('click',function (e) {
+				var a = new XMLHttpRequest();
+				a.open("GET", "pinon.php");
+				a.onreadystatechange = function () {
+					if (a.readyState == 4) {
+						if (a.status == 200) {
+						}
+						else {
+							alert("HTTP ERRORS");
+						}
+					}
+				}
+				a.send();
+				
+				$('#clickON').addClass("btn-success").removeClass("btn-danger");
+				
+				setTimeout(function () { 
+					$('#clickON').prop('disabled',true);
+					signalOff(); 
+
+				}, 1000);	
+			})
+		
+		
+			
+		});
+
+				
+			
+		
+
+
+	</script>
+
+	<title>Gate</title>
+</head>
+
+<body>
+<h1> Access Control </h1>
+	<div class="contents text-center">
+	<img class="rounded img-fluid" style="-webkit-user-select: none;" src="http://stream.cateam.org/">
+		<br>
+		<button class="btn btn-danger" type="button" id="clickON">OPEN GATE</button>
+	</div>
+</body>
+
+</html>
