@@ -21,23 +21,6 @@
   <script src="patternLock.js"></script>
   
   <script type="text/javascript">
-	    var alarmOff = function () {
-
-      var b = new XMLHttpRequest();
-      b.open("GET", "alarmOff.php");
-      b.onreadystatechange = function () {
-        if (b.readyState == 4) {
-          if (b.status == 200) {
-          }
-          else {
-            alert("HTTP ERRORS");
-          }
-        }
-      }
-      b.send();
-
-	}
- 
     var signalOff = function () {
 
       var b = new XMLHttpRequest();
@@ -55,28 +38,10 @@
 
       $('#clickON').addClass("btn-danger").removeClass("btn-success");
       $('#clickON').prop('disabled', false);
+    };
 
-	}
-    $(document).ready(function (){
-	setInterval(function(){
-var b = new XMLHttpRequest();
-    b.open("GET", "pinoff.php");
-    b.onreadystatechange = function () {
-      if (b.readyState == 4) {
-        if (b.status == 200) {
-          console.log("pinOff successful")
-        }
-        else {
-          console.log("HTTP ERROR")
-        }
-      }
-    }
-    b.send();
-  },10000)
-
-
-
-
+ 
+    $(document).ready(function () {
       $('#clickON').on('touchstart', function (e) {
         var a = new XMLHttpRequest();
         a.open("GET", "pinon.php");
@@ -96,11 +61,7 @@ var b = new XMLHttpRequest();
         setTimeout(function () {
           $('#clickON').prop('disabled', true);
           signalOff();
-        }, 100);
-
-	setTimeout(function () {
-		alarmOff();
-	},1000);
+        }, 1000);
       })
       
       $('#clickON').on('click', function (e) {
@@ -119,18 +80,13 @@ var b = new XMLHttpRequest();
         a.send();
 
         $('#clickON').addClass("btn-success").removeClass("btn-danger");
-	
-	setTimeout(function () {
-          alarmOff();
 
-        }, 1000);
-
-         setTimeout(function () {
+        setTimeout(function () {
           $('#clickON').prop('disabled', true);
           signalOff();
 
-        }, 100);
-     })
+        }, 1000);
+      })
     
     });
   
@@ -161,7 +117,7 @@ var b = new XMLHttpRequest();
           <div>
             <h1>&nbsp;</h1><div class="contents text-center">
               <div class="contents text-center">
-	<img class="rounded img-fluid" style="-webkit-user-select: none;" src="http://stream.cateam.org/">	
+                <img class="rounded img-fluid" style="-webkit-user-select: none;" src="http://stream.cateam.org/">
                 <br><button class="btn btn-danger" type="button" id="clickON">OPEN GATE</button>
               </div>
             </div>

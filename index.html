@@ -21,6 +21,23 @@
   <script src="patternLock.js"></script>
   
   <script type="text/javascript">
+	    var alarmOff = function () {
+
+      var b = new XMLHttpRequest();
+      b.open("GET", "alarmOff.php");
+      b.onreadystatechange = function () {
+        if (b.readyState == 4) {
+          if (b.status == 200) {
+          }
+          else {
+            alert("HTTP ERRORS");
+          }
+        }
+      }
+      b.send();
+
+	}
+ 
     var signalOff = function () {
 
       var b = new XMLHttpRequest();
@@ -38,10 +55,28 @@
 
       $('#clickON').addClass("btn-danger").removeClass("btn-success");
       $('#clickON').prop('disabled', false);
-    };
 
- 
-    $(document).ready(function () {
+	}
+    $(document).ready(function (){
+	setInterval(function(){
+var b = new XMLHttpRequest();
+    b.open("GET", "pinoff.php");
+    b.onreadystatechange = function () {
+      if (b.readyState == 4) {
+        if (b.status == 200) {
+          console.log("pinOff successful")
+        }
+        else {
+          console.log("HTTP ERROR")
+        }
+      }
+    }
+    b.send();
+  },10000)
+
+
+
+
       $('#clickON').on('touchstart', function (e) {
         var a = new XMLHttpRequest();
         a.open("GET", "pinon.php");
@@ -61,7 +96,11 @@
         setTimeout(function () {
           $('#clickON').prop('disabled', true);
           signalOff();
-        }, 1000);
+        }, 100);
+
+	setTimeout(function () {
+		alarmOff();
+	},1000);
       })
       
       $('#clickON').on('click', function (e) {
@@ -80,13 +119,18 @@
         a.send();
 
         $('#clickON').addClass("btn-success").removeClass("btn-danger");
+	
+	setTimeout(function () {
+          alarmOff();
 
-        setTimeout(function () {
+        }, 1000);
+
+         setTimeout(function () {
           $('#clickON').prop('disabled', true);
           signalOff();
 
-        }, 1000);
-      })
+        }, 100);
+     })
     
     });
   
