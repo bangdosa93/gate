@@ -60,7 +60,29 @@ $(document).ready(function () {
     },700)
   })
 
-  $('#clickON').bind('touchstart click', function (e) {
+  // $('#clickON').bind('touchstart click', function (e) {
+  //   signalOn();
+  //   $('#clickON').addClass("btn-success").removeClass("btn-danger");
+  //   setTimeout(function () { signalOff(); }, 1000);
+  //   setTimeout(function () {
+  //     // $('#clickON').prop('disabled', true);
+  //     $('#clickON').addClass("btn-danger").removeClass("btn-success");
+  //     // $('#clickON').prop('disabled', false);
+  //     alarmOff();
+  //   }, 1000);
+  // })
+  $('#clickON').on('touchstart', function (e) {
+    signalOn();
+    $('#clickON').addClass("btn-success").removeClass("btn-danger");
+    setTimeout(function () { signalOff(); }, 1000);
+    setTimeout(function () {
+      // $('#clickON').prop('disabled', true);
+      $('#clickON').addClass("btn-danger").removeClass("btn-success");
+      // $('#clickON').prop('disabled', false);
+      alarmOff();
+    }, 1000);
+  })
+  $('#clickON').on('click', function (e) {
     signalOn();
     $('#clickON').addClass("btn-success").removeClass("btn-danger");
     setTimeout(function () { signalOff(); }, 1000);
