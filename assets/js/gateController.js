@@ -45,13 +45,9 @@ let alarmOff = function () {
 
 $(document).ready(function () {
   // send signal to close gate every 10 seconds
-  setInterval(function(){
-    signalOff();
-  },10000)
-
-
-
-
+  // setInterval(function(){
+  //   signalOff();
+  // },10000)
 
   $('#logout').bind('click touchstart', function (e) {
     e.preventDefault();
@@ -69,9 +65,9 @@ $(document).ready(function () {
     $('#clickON').addClass("btn-success").removeClass("btn-danger");
     setTimeout(function () { signalOff(); }, 1000);
     setTimeout(function () {
-      $('#clickON').prop('disabled', true);
+      // $('#clickON').prop('disabled', true);
       $('#clickON').addClass("btn-danger").removeClass("btn-success");
-      $('#clickON').prop('disabled', false);
+      // $('#clickON').prop('disabled', false);
       alarmOff();
     }, 1000);
   })
