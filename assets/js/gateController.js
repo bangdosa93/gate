@@ -1,6 +1,6 @@
 let signalOn = function () {
   let so = new XMLHttpRequest();
-  so.open("GET", "../../utils/pinon.php");
+  so.open("GET", "./../../utils/pinon.php");
   so.onreadystatechange = function () {
     if (so.readyState == 4) {
       if (so.status == 200) {
@@ -15,7 +15,7 @@ let signalOn = function () {
 
 let signalOff = function () {
   let so = new XMLHttpRequest();
-  so.open("GET", "../../utils/pinoff.php");
+  so.open("GET", "./../../utils/pinoff.php");
   so.onreadystatechange = function () {
     if (so.readyState == 4) {
       if (so.status == 200) {
@@ -30,7 +30,7 @@ let signalOff = function () {
 
 let alarmOff = function () {
   let ao = new XMLHttpRequest();
-  ao.open("GET", "../../utils/alarmOff.php");
+  ao.open("GET", "./../../utils/alarmOff.php");
   ao.onreadystatechange = function () {
     if (ao.readyState == 4) {
       if (ao.status == 200) {
