@@ -51,3 +51,30 @@
 .patt-hidden .patt-lines{
 	display:none;
 }
+
+
+/***********************/
+/*******	header *******/
+/***********************/
+
+.header{
+	padding: 10px;
+	display: flex;
+	justify-content: space-between;
+}
+
+.header > span {
+	margin: auto 0;
+}
+
+.header > a{
+	border: 1px solid grey;
+	margin: 0 5px;
+	padding: 5px 15px;
+	border-radius: 5px;
+	/* display: block !important; */
+}
+
+.hidden{
+	display: none;
+}

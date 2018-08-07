@@ -44,6 +44,16 @@ let alarmOff = function () {
 }
 
 $(document).ready(function () {
+  $('#logout').bind('click touchstart', function (e) {
+    e.preventDefault();
+    // window.history.go(0);
+    let target = $('#logout')
+    target.fadeOut();
+    setTimeout(function(){
+      target.fadeIn();
+    },100)
+  })
+
   $('#clickON').bind('touchstart click', function (e) {
     signalOn();
     $('#clickON').addClass("btn-success").removeClass("btn-danger");
