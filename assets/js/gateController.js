@@ -92,5 +92,5 @@ $(document).ready(function () {
   //     // $('#clickON').prop('disabled', false);
   //     alarmOff();
   //   }, 1000);
-  // })
+  })
 })
