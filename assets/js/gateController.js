@@ -44,10 +44,10 @@ let alarmOff = function () {
 }
 
 $(document).ready(function () {
-  // send signal to close gate every 10 seconds
-  // setInterval(function(){
-  //   signalOff();
-  // },10000)
+  send signal to close gate every 10 seconds
+  setInterval(function(){
+    signalOff();
+  },10000)
 
   $('#logout').bind('click touchstart', function (e) {
     e.preventDefault();
@@ -60,7 +60,18 @@ $(document).ready(function () {
     },700)
   })
 
-  // $('#clickON').bind('touchstart click', function (e) {
+  $('#clickON').bind('touchstart click', function (e) {
+    signalOn();
+    $('#clickON').addClass("btn-success").removeClass("btn-danger");
+    setTimeout(function () { signalOff(); }, 1000);
+    setTimeout(function () {
+      // $('#clickON').prop('disabled', true);
+      $('#clickON').addClass("btn-danger").removeClass("btn-success");
+      // $('#clickON').prop('disabled', false);
+      alarmOff();
+    }, 1000);
+  // })
+  // $('#clickON').on('touchstart', function (e) {
   //   signalOn();
   //   $('#clickON').addClass("btn-success").removeClass("btn-danger");
   //   setTimeout(function () { signalOff(); }, 1000);
@@ -71,26 +82,15 @@ $(document).ready(function () {
   //     alarmOff();
   //   }, 1000);
   // })
-  $('#clickON').on('touchstart', function (e) {
-    signalOn();
-    $('#clickON').addClass("btn-success").removeClass("btn-danger");
-    setTimeout(function () { signalOff(); }, 1000);
-    setTimeout(function () {
-      // $('#clickON').prop('disabled', true);
-      $('#clickON').addClass("btn-danger").removeClass("btn-success");
-      // $('#clickON').prop('disabled', false);
-      alarmOff();
-    }, 1000);
-  })
-  $('#clickON').on('click', function (e) {
-    signalOn();
-    $('#clickON').addClass("btn-success").removeClass("btn-danger");
-    setTimeout(function () { signalOff(); }, 1000);
-    setTimeout(function () {
-      // $('#clickON').prop('disabled', true);
-      $('#clickON').addClass("btn-danger").removeClass("btn-success");
-      // $('#clickON').prop('disabled', false);
-      alarmOff();
-    }, 1000);
-  })
+  // $('#clickON').on('click', function (e) {
+  //   signalOn();
+  //   $('#clickON').addClass("btn-success").removeClass("btn-danger");
+  //   setTimeout(function () { signalOff(); }, 1000);
+  //   setTimeout(function () {
+  //     // $('#clickON').prop('disabled', true);
+  //     $('#clickON').addClass("btn-danger").removeClass("btn-success");
+  //     // $('#clickON').prop('disabled', false);
+  //     alarmOff();
+  //   }, 1000);
+  // })
 })
