@@ -47,6 +47,7 @@ $(document).ready(function () {
   // send signal to close gate every 10 seconds
   setInterval(function(){
     signalOff();
+    alarmOff();
   },10000)
 
   $('#logout').bind('click touchstart', function (e) {
