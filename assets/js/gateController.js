@@ -49,6 +49,10 @@ $(document).ready(function () {
     signalOff();
   },10000)
 
+
+
+
+
   $('#logout').bind('click touchstart', function (e) {
     e.preventDefault();
     
@@ -63,7 +67,7 @@ $(document).ready(function () {
   $('#clickON').bind('touchstart click', function (e) {
     signalOn();
     $('#clickON').addClass("btn-success").removeClass("btn-danger");
-    setTimeout(function () { signalOff(); }, 300);
+    setTimeout(function () { signalOff(); }, 1000);
     setTimeout(function () {
       $('#clickON').prop('disabled', true);
       $('#clickON').addClass("btn-danger").removeClass("btn-success");
