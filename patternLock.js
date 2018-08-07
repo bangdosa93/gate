@@ -5,7 +5,7 @@
     Demo on: ignitersworld.com/lab/patternLock.html
 */
 
-;(function(factory) {
+(function(factory) {
     /** support UMD ***/
     var global = Function('return this')() || (42, eval)('this');
     if (typeof define === "function" && define.amd) {
@@ -108,6 +108,8 @@
                 idx = posObj.idx,
                 pattId = iObj.mapperFunc(idx) || idx;
 
+                
+
 
             if (patternAry.length > 0) {
                 var laMove = getLengthAngle(iObj.lineX1, posObj.x, iObj.lineY1, posObj.y);
@@ -185,14 +187,21 @@
 
 
             if (iObj.rightPattern) {
-                if (pattern == iObj.rightPattern) {
-                    iObj.onSuccess();
+                const validKeys = Object.keys(patternLib)
+                if (validKeys.includes(pattern)){
+                    iObj.onSuccess(patternLib[pattern]);  
                 } else {
                     iObj.onError();
                     obj.error();
                 }
             }
         };
+
+        const patternLib = {
+            "14523" : "Limited User",
+            "12569": "Pastor",
+        }
+
 
     function InternalMethods() {}
 
@@ -354,6 +363,7 @@
         //get drawn pattern as string
         getPattern: function() {
             var iObj = objectHolder[this.token];
+            
             return (iObj.patternAry || []).join(iObj.option.delimiter);
         },
         //method to draw a pattern dynamically
@@ -372,6 +382,7 @@
                 pattern = pattern.split(option.delimiter);
             }
 
+            
             this.reset();
             iObj.wrapLeft = 0;
             iObj.wrapTop = 0;
@@ -423,6 +434,7 @@
         },
         //to check the drawn pattern against given pattern
         checkForPattern: function(pattern, success, error) {
+            
             var iObj = objectHolder[this.token];
             iObj.rightPattern = pattern;
             iObj.onSuccess = success || nullFunc;

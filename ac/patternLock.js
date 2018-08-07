@@ -109,6 +109,7 @@
                 pattId = iObj.mapperFunc(idx) || idx;
 
 
+
             if (patternAry.length > 0) {
                 var laMove = getLengthAngle(iObj.lineX1, posObj.x, iObj.lineY1, posObj.y);
                 iObj.line.css({
@@ -354,7 +355,9 @@
         //get drawn pattern as string
         getPattern: function() {
             var iObj = objectHolder[this.token];
+
             return (iObj.patternAry || []).join(iObj.option.delimiter);
+            
         },
         //method to draw a pattern dynamically
         setPattern: function(pattern) {
