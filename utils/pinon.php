@@ -9,5 +9,5 @@
 	sleep(0.3);
 	system("gpio -g write 14 0");
 	sleep(0.7);
-	system("gprio -g write 18 0");
+	system("gpio -g write 18 0");
 ?>
