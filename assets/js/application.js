@@ -47,8 +47,10 @@ mhnUI = {
       t = t ? t : "page-home", setTimeout(function(){
         $(".mhn-ui-page").hide(), $(".mhn-ui-page." + t).fadeIn(500)
         $(".mhn-ui-page-title").append("'"+currentUser+"'")
+        let lock = `<i class="fas fa-unlock-alt" ></i>`
         if (currentUser == "Pastor"){
           $(contents).insertAfter(".img-placer")
+          $('.lock-holder').addClass('unlocked').append(lock)
         }},300);
     },
     hide: function (t) {
