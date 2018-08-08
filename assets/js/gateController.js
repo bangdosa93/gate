@@ -67,12 +67,12 @@ $(document).ready(function () {
   $('#clickON').bind('touchstart click', function (e) {
     signalOn();
     $('#clickON').addClass("btn-success").removeClass("btn-danger");
-    setTimeout(function () { signalOff(); }, 300);
+    // setTimeout(function () { signalOff(); }, 300);
     setTimeout(function () {
       // $('#clickON').prop('disabled', true);
       $('#clickON').addClass("btn-danger").removeClass("btn-success");
       // $('#clickON').prop('disabled', false);
-      alarmOff();
+      // alarmOff();
     }, 1000);
   // })
   // $('#clickON').on('touchstart', function (e) {
