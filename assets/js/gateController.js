@@ -6,7 +6,8 @@ let signalOn = function () {
       if (so.status == 200) {
       }
       else {
-        alert("HTTP ERRORS");
+        // alert("HTTP ERRORS");
+        console.log('HTTP ERROR from signalOn()')
       }
     }
   }
@@ -21,7 +22,8 @@ let signalOff = function () {
       if (so.status == 200) {
       }
       else {
-        alert("HTTP ERRORS");
+        // alert("HTTP ERRORS");
+        console.log('HTTP ERROR from signalOff()')
       }
     }
   }
@@ -36,7 +38,8 @@ let alarmOff = function () {
       if (ao.status == 200) {
       }
       else {
-        alert("HTTP ERRORS");
+        // alert("HTTP ERRORS");
+        console.log('HTTP ERROR from alarmOff()')
       }
     }
   }
