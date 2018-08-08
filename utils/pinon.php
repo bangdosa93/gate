@@ -6,8 +6,8 @@
 	system("gpio -g mode 18 out");
 	system("gpio -g write 14 1");
 	system("gpio -g write 18 1");
-	sleep(0.3);
+	usleep(300000);
 	system("gpio -g write 14 0");
-	sleep(0.7);
+	usleep(700000);
 	system("gpio -g write 18 0");
 ?>
