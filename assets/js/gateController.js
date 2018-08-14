@@ -1,4 +1,5 @@
 let signalOn = function () {
+  
   let so = new XMLHttpRequest();
   so.open("GET", "../../utils/pinon.php");
   so.onreadystatechange = function () {
@@ -40,6 +41,22 @@ let alarmOff = function () {
       else {
         // alert("HTTP ERRORS");
         console.log('HTTP ERROR from alarmOff()')
+      }
+    }
+  }
+  ao.send();
+}
+
+let gateHold = function () {
+  let ao = new XMLHttpRequest();
+  ao.open("GET", "../../utils/gateHold.php");
+  ao.onreadystatechange = function () {
+    if (ao.readyState == 4) {
+      if (ao.status == 200) {
+      }
+      else {
+        // alert("HTTP ERRORS");
+        console.log('HTTP ERROR from gateHold()')
       }
     }
   }
