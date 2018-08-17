@@ -7,7 +7,7 @@ $(document).ready(function () {
 
     if (target.hasClass('unlocked')) {
       target.addClass('locked bounce').removeClass('unlocked')
-      $('.gate-button').attr("id","").addClass('btn-secondary').removeClass('btn-danger').empty().append('Not Available')
+      $('.gate-button').attr("disabled", true).addClass('btn-secondary').removeClass('btn-danger').empty().append('Not Available')
       gateHold();
       setTimeout(function(){
         target.removeClass('bounce')  
@@ -16,7 +16,7 @@ $(document).ready(function () {
       
     } else if (target.hasClass('locked')) {
       target.addClass('unlocked bounce').removeClass('locked')
-      $('.gate-button').attr("id", "clickON").addClass('btn-danger').removeClass('btn-secondary').empty().append('OPEN GATE')
+      $('.gate-button').attr("disabled", false).addClass('btn-danger').removeClass('btn-secondary').empty().append('OPEN GATE')
       signalOff();
       setTimeout(function () {
         target.removeClass('bounce')  
