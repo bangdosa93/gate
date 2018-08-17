@@ -6,11 +6,11 @@
 	system("gpio -g mode 18 out");
 	system("gpio -g write 14 1");
 	
-	for ($x = 0; $x <= 5; $x++) {
+	for ($x = 0; $x <= 4; $x++) {
 		system("gpio -g write 18 1");
-		usleep(50000);
+		usleep(70000);
   		system("gpio -g write 18 0");
-		usleep(50000);
+		usleep(70000);
 	}	 
 
   	// usleep(500000);
