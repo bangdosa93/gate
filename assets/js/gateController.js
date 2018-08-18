@@ -1,7 +1,7 @@
 let signalOn = function () {
   
   let so = new XMLHttpRequest();
-  so.open("GET", "../../utils/pinon.php");
+  so.open("GET", "../../utils/gateOpen.php");
   so.onreadystatechange = function () {
     if (so.readyState == 4) {
       if (so.status == 200) {
@@ -17,7 +17,7 @@ let signalOn = function () {
 
 let signalOff = function () {
   let so = new XMLHttpRequest();
-  so.open("GET", "../../utils/pinoff.php");
+  so.open("GET", "../../utils/allPinsOff.php");
   so.onreadystatechange = function () {
     if (so.readyState == 4) {
       if (so.status == 200) {
