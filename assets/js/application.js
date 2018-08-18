@@ -48,9 +48,12 @@ mhnUI = {
         $(".mhn-ui-page").hide(), $(".mhn-ui-page." + t).fadeIn(500)
         $(".mhn-ui-page-title").append("'"+currentUser+"'")
         let lock = `<i class="fas fa-unlock-alt" ></i>`
+        let doorLock = `<i class="fas fa-door-closed"></i>`
+
         if (currentUser == "Pastor"){
           $(contents).insertAfter(".img-placer")
           $('.lock-holder').addClass('unlocked').append(lock)
+          $('.door-holder').addClass('door-locked').append(doorLock)
         }},300);
     },
     hide: function (t) {

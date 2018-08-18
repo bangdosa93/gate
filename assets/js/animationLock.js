@@ -7,7 +7,7 @@ $(document).ready(function () {
 
     if (target.hasClass('unlocked')) {
       target.addClass('locked bounce').removeClass('unlocked')
-      $('.gate-button').attr("disabled", true).addClass('btn-secondary').removeClass('btn-danger').empty().append('Not Available')
+      $('.gate-button').attr("disabled", true).addClass('btn-secondary').removeClass('btn-danger').empty().append('Not Available').off('touchstart')
       gateHold();
       setTimeout(function(){
         target.removeClass('bounce')  
@@ -23,5 +23,29 @@ $(document).ready(function () {
         target.empty().append(unlock)
       }, 600)
     }
+  })
+
+  $('.door-holder').bind('touchstart click', function (e) {
+    e.preventDefault();
+    let lock = `<i class="fas fa-door-closed"></i>`
+    let unlock = `<i class="fas fa-door-open"></i>`
+    let target = $('.door-holder');
+
+    if (target.hasClass('door-locked')) {
+      target.addClass('door-unlocked bounce').removeClass('door-locked')
+      
+      doorOpen();
+      setTimeout(function () {
+
+        target.removeClass('bounce')
+        target.empty().append(unlock)
+      }, 600)
+
+      setTimeout(function () {
+        target.addClass('door-locked').removeClass('door-unlocked')
+        target.empty().append(lock)
+      },4000)
+    }
+
   })
 })

@@ -1,14 +1,21 @@
 .animated {
+  display: flex;
   background-repeat: no-repeat;
   background-position: left top;
   width: 55px;
   margin: auto auto 40px auto;
   font-size: 4em;
-  color: #ff9553;
+  color: #ebc364;
   -webkit-animation-duration: 0.8s;
   animation-duration: 0.8s;
   -webkit-animation-fill-mode: both;
   animation-fill-mode: both;
+}
+
+.animation-wrapper{
+  display: flex;
+  margin: 0 auto;
+  max-width: 640px;
 }
 
 @-webkit-keyframes bounce {
