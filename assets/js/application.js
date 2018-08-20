@@ -54,6 +54,7 @@ mhnUI = {
           $(contents).insertAfter(".img-placer")
           $('.lock-holder').addClass('unlocked').append(lock)
           $('.door-holder').addClass('door-locked').append(doorLock)
+          $('.front-door-holder').addClass('unlocked').append(lock)
         }},300);
     },
     hide: function (t) {

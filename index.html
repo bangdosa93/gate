@@ -13,18 +13,18 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
     crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ"
-      crossorigin="anonymous">
+    crossorigin="anonymous">
   <link rel="stylesheet" href="assets/css/application.css">
   <link rel="stylesheet" href="assets/css/animation.css">
 
- <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
-   <script>
+  <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
+  <script>
     var OneSignal = window.OneSignal || [];
-        OneSignal.push(function () {
-		      OneSignal.init({
-			              appId: "6fdf003a-8011-4589-9544-dfde0361d641",
-				            });
-		          });
+    OneSignal.push(function () {
+      OneSignal.init({
+        appId: "6fdf003a-8011-4589-9544-dfde0361d641",
+      });
+    });
   </script>
 
 
@@ -58,16 +58,32 @@
         <span class="mhn-ui-page-title">Logged in as &nbsp;</span>
         <a id="logout" class="">Logout</a>
       </div>
-      <div class="mhn-ui-row mhn-ui-apps">
-        <div>
-          <div class="animation-wrapper">
-            <h1 class="text-center lock-holder animated"></h1>
-            <h1 class="text-center door-holder animated" style="color:#fb9b51"></h1>
+      <div class="content-wrapper">
+        <div class="mhn-ui-row mhn-ui-apps">
+          <div>
+            <div class="animation-wrapper">
+              <h1 class="text-center lock-holder animated"></h1>
+              <h1 class="text-center door-holder animated" style="color:#fb9b51"></h1>
+            </div>
+            <div class="contents text-center">
+              <div class="img-placer"></div>
+              <br>
+              <button class="btn btn-danger gate-button" type="button" id="clickON">OPEN GATE</button>
+            </div>
           </div>
-          <div class="contents text-center">
-            <div class="img-placer"></div>
-            <br>
-            <button class="btn btn-danger gate-button" type="button" id="clickON">OPEN GATE</button>
+        </div>
+        <div class="vl"></div>
+        <div class="mhn-ui-row mhn-ui-apps">
+          <div>
+            <div class="animation-wrapper">
+              <h1 class="text-center front-door-holder animated"></h1>
+              
+            </div>
+            <div class="contents text-center">
+              <div class="img-placer"></div>
+              <br>
+              <button class="btn btn-danger gate-button" type="button" id="openFrontDoor">OPEN FRONT DOOR</button>
+            </div>
           </div>
         </div>
       </div>
