@@ -134,6 +134,7 @@ $(document).ready(function () {
   })
 
   $('#clickON').bind('touchstart click', function (e) {
+    e.preventDefault();
     signalOn();
     $('#clickON').addClass("btn-success").removeClass("btn-danger");
     // setTimeout(function () { signalOff(); }, 300);
@@ -146,6 +147,7 @@ $(document).ready(function () {
   })
 
   $('#openFrontDoor').bind('touchstart click', function (e) {
+    e.preventDefault();
     console.log('openFrontDoor button clicked...')
     console.log('calling openFrontDoor function...')
     openFrontDoor();
