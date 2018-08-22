@@ -1,5 +1,5 @@
 let signalOn = function () {
-  
+
   let so = new XMLHttpRequest();
   so.open("GET", "../../utils/gateOpen.php");
   so.onreadystatechange = function () {
@@ -81,7 +81,7 @@ let doorOpen = function () {
 
 let unlockFrontDoor = function () {
   let ufd = new XMLHttpRequest();
-  ufd.open("GET", "http://door.cateam.org/utils/unlockFrontDoor.php");
+  ufd.open("GET", "http://door.cateam.org/utils/unlockFrontDoor.php", true);
   ufd.onreadystatechange = function () {
     if (ufd.readyState == 4) {
       if (ufd.status == 200) {
@@ -99,7 +99,7 @@ let unlockFrontDoor = function () {
 let openFrontDoor = function () {
   let ofd = new XMLHttpRequest();
   // ofd.open("GET", "../../utils/frontDoor/openFrontDoor.php");
-  ofd.open("GET", "http://door.cateam.org/utils/openFrontDoor.php");
+  ofd.open("GET", "http://door.cateam.org/utils/openFrontDoor.php", true);
   ofd.onreadystatechange = function () {
     if (ofd.readyState == 4) {
       if (ofd.status == 200) {
@@ -115,8 +115,6 @@ let openFrontDoor = function () {
 }
 
 
-
-
 $(document).ready(function () {
   // send signal to close gate every 10 seconds
   // setInterval(function(){
@@ -126,13 +124,13 @@ $(document).ready(function () {
 
   $('#logout').bind('click touchstart', function (e) {
     e.preventDefault();
-    
+
     let target = $('#logout')
     target.fadeOut();
     target.fadeIn();
-    setTimeout(function(){
-      window.history.go(0);  
-    },700)
+    setTimeout(function () {
+      window.history.go(0);
+    }, 700)
   })
 
   $('#clickON').bind('touchstart click', function (e) {
@@ -153,7 +151,7 @@ $(document).ready(function () {
     openFrontDoor();
     console.log('done...')
     $('#openFrontDoor').addClass("btn-success").removeClass("btn-danger");
-    
+
     setTimeout(function () {
       $('#openFrontDoor').addClass("btn-danger").removeClass("btn-success");
     }, 1000);
