@@ -391,11 +391,57 @@ button{
 }
 
 .content-wrapper {
-    display: flex;
+    display: flex !important;
     justify-content: center;
 }
 .vl {
     margin: 20px 30px 0 30px;
     border-left: 1px solid darkslategrey;
     height: 700px;
+}
+
+@media only screen and (max-width: 500px) {
+
+    ::-webkit-scrollbar { 
+        display: none; 
+    }
+    .content-wrapper {
+        display: -webkit-box !important;   
+    }
+    .vl{
+        display: none;
+    }
+    .cards{
+        width: 100%;
+    }
+
+    .scrolling-wrapper{
+        overflow-x : scroll;
+         -webkit-overflow-scrolling: touch;
+         /* font-size: 2em; */
+    }   
+
+    img{
+        width: 95%;
+    }
+
+    .left-arrow{
+        top: 40vh;
+        position: fixed;
+        left: 1vw;
+        padding: 10px;
+        z-index:10;
+    }
+    
+    .right-arrow{
+        position: fixed;
+        right: 1vw;
+        top: 40vh;
+        padding: 10px;
+        z-index:10;
+    }
+    .page-nav{
+        font-size: 2em;
+
+    }
 }
