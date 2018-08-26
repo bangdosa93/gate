@@ -2,7 +2,7 @@
 
 <head>
   <title>Gate</title>
-   
+
 
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -37,6 +37,7 @@
   <script src="assets/js/gateController.js"></script>
   <script src="assets/js/patternLock.js"></script>
   <script src="assets/js/animationLock.js"></script>
+  <script src="assets/js/scroll.js"></script>
 </head>
 
 <body>
@@ -59,8 +60,13 @@
         <span class="mhn-ui-page-title">Logged in as &nbsp;</span>
         <a id="logout" class="">Logout</a>
       </div>
-      <div class="content-wrapper">
-        <div class="mhn-ui-row mhn-ui-apps">
+      <div class="content-wrapper scrolling-wrapper ">
+        <div class="page-nav">
+          <div class="left-arrow"><i class="fas fa-chevron-left"></i></div>
+          <div class="right-arrow"><i class="fas fa-chevron-right"></i></div>
+        </div>
+        
+        <div id="1" class="mhn-ui-row mhn-ui-apps cards card-1">
           <div>
             <div class="animation-wrapper">
               <h1 class="text-center lock-holder animated"></h1>
@@ -74,11 +80,11 @@
           </div>
         </div>
         <div class="vl"></div>
-        <div class="mhn-ui-row mhn-ui-apps">
+        <div id="2" class="mhn-ui-row mhn-ui-apps cards card-2">
           <div>
             <div class="animation-wrapper">
               <h1 class="text-center front-door-holder animated"></h1>
-              
+
             </div>
             <div class="contents text-center">
               <div class="img-placer-door"></div>
@@ -86,6 +92,7 @@
               <button class="btn btn-danger gate-button" type="button" id="openFrontDoor">OPEN FRONT DOOR</button>
             </div>
           </div>
+        
         </div>
       </div>
     </div>
