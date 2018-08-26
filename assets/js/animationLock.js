@@ -48,4 +48,23 @@ $(document).ready(function () {
     }
 
   })
+
+  $('.front-door-holder').bind('touchstart click', function (e) {
+    e.preventDefault();
+    let lock = `<i class="fas fa-door-closed"></i>`
+    let unlock = `<i class="fas fa-door-open"></i>`
+    let target = $('.front-door-holder');
+
+    if (target.hasClass('unlocked')) {
+      target.addClass('bounce')
+      console.log('unlockFrontDoor button clicked...')
+      console.log('calling unlockFrontDoor function...')
+      unlockFrontDoor();
+      console.log('done');
+      
+      setTimeout(function () {
+        target.removeClass('bounce')
+      }, 600)
+    }
+  })
 })
