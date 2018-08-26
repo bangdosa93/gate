@@ -403,6 +403,13 @@ button{
     display: none;
 }
 
+@media only screen and (max-width: 1024px) {
+    .content-wrapper{
+        width: 90%;
+        margin: auto;
+    }
+}
+
 @media only screen and (max-width: 500px) {
 
     ::-webkit-scrollbar { 
