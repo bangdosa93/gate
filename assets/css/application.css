@@ -399,6 +399,9 @@ button{
     border-left: 1px solid darkslategrey;
     height: 700px;
 }
+.page-nav{
+    display: none;
+}
 
 @media only screen and (max-width: 500px) {
 
@@ -442,6 +445,8 @@ button{
     }
     .page-nav{
         font-size: 2em;
-
+        display: block;
     }
+
+
 }
