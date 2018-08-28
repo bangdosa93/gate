@@ -44,6 +44,8 @@ mhnUI = {
   },
   page: {
     show: function (currentUser, t) {
+
+
       t = t ? t : "page-home", setTimeout(function(){
         $(".mhn-ui-page").hide(), $(".mhn-ui-page." + t).fadeIn(500)
         $(".mhn-ui-page-title").append("'"+currentUser+"'")
@@ -59,13 +61,7 @@ mhnUI = {
           $('.front-door-holder').addClass('unlocked').append(lock)
           $('.page-2, .vl').removeClass('hidden')
           $('.left-arrow').append(leftArrow)
-          $('.right-arrow').append(rightArrow)
-
-          console.log($('.page-nav'))
-
-
-            
-          
+          $('.right-arrow').append(rightArrow)          
         }},300);
     },
     hide: function (t) {

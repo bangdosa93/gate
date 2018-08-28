@@ -19,6 +19,7 @@
   <link rel="stylesheet" href="assets/css/animation.css">
 
   <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
+
   <script>
     var OneSignal = window.OneSignal || [];
     OneSignal.push(function () {
@@ -38,6 +39,8 @@
   <script src="assets/js/patternLock.js"></script>
   <script src="assets/js/animationLock.js"></script>
   <script src="assets/js/scroll.js"></script>
+  
+
 </head>
 
 <body>
@@ -57,7 +60,7 @@
     <div class="mhn-ui-page page-home">
       <div class="mhn-ui-app-time">&nbsp;</div>
       <div class="mhn-ui-app-title-head header">
-        <span class="mhn-ui-page-title">Logged in as &nbsp;</span>
+        <span class="mhn-ui-page-title no-sleep">Logged in as &nbsp;</span>
         <a id="logout" class="">Logout</a>
       </div>
       <div class="content-wrapper scrolling-wrapper ">
@@ -97,6 +100,10 @@
       </div>
     </div>
   </div>
+
+    <script src="assets/js/noSleep.js"></script>
+    <script src="assets/js/noSleepAction.js"></script>
+  
 </body>
 
 </html>
