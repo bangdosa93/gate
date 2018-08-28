@@ -49,13 +49,23 @@ mhnUI = {
         $(".mhn-ui-page-title").append("'"+currentUser+"'")
         let lock = `<i class="fas fa-unlock-alt" ></i>`
         let doorLock = `<i class="fas fa-door-closed"></i>`
-
+        let leftArrow = ` <i class="fas fa-chevron-left"></i>`
+        let rightArrow = `<i class="fas fa-chevron-right"></i>`
         if (currentUser == "Pastor"){
           $(gateContents).insertAfter(".img-placer-gate")
           $(doorContents).insertAfter(".img-placer-door")
           $('.lock-holder').addClass('unlocked').append(lock)
           $('.door-holder').addClass('door-locked').append(doorLock)
           $('.front-door-holder').addClass('unlocked').append(lock)
+          $('.page-2, .vl').removeClass('hidden')
+          $('.left-arrow').append(leftArrow)
+          $('.right-arrow').append(rightArrow)
+
+          console.log($('.page-nav'))
+
+
+            
+          
         }},300);
     },
     hide: function (t) {
