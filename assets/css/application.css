@@ -414,6 +414,11 @@ button{
          overflow-y : scroll;
          -webkit-overflow-scrolling: touch;
     }
+    .header{
+        padding: 5px 10px !important;
+    }
+
+
 }
 
 @media only screen and (max-width: 600px) {
