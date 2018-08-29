@@ -408,12 +408,12 @@ button{
 }
 
 @media only screen and (max-width: 1024px) {
-    /* .content-wrapper{
-        width: 85%;
+    .content-wrapper{
+        width: 80%;
         margin: auto;
          overflow-y : scroll;
          -webkit-overflow-scrolling: touch;
-    } */
+    }
 }
 
 @media only screen and (max-width: 600px) {
@@ -438,6 +438,7 @@ button{
     }   
 
     img{
+        max-height: 60%;
         width: 95%;
     }
 
