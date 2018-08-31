@@ -407,6 +407,8 @@ button{
     .content-wrapper{
         width: 85%;
         margin: auto;
+         overflow-y : scroll;
+         -webkit-overflow-scrolling: touch;
     }
 }
 
