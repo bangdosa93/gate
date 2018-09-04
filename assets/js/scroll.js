@@ -8,7 +8,8 @@ $(document).ready(function () {
   
   $('.right-arrow').bind('click touchstart', function (e) {
     // console.log(context)
-    context.animate({ scrollLeft: 500 }, 'fast', 'swing');
+    context.animate({ scrollLeft: document.body.scrollWidth}, 'fast', 'swing');
+    
   })
 
 
