@@ -418,6 +418,9 @@ button{
         padding: 5px 10px !important;
     }
 
+    .animated{
+        margin-bottom:15px;
+    }
 
 }
 
