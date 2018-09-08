@@ -422,6 +422,9 @@ button{
         margin-bottom:15px;
     }
 
+    button{
+        margin-top: 10px;
+    }
 }
 
 @media only screen and (max-width: 600px) {
