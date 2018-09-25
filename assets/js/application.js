@@ -53,15 +53,32 @@ mhnUI = {
         let doorLock = `<i class="fas fa-door-closed"></i>`
         let leftArrow = ` <i class="fas fa-chevron-left"></i>`
         let rightArrow = `<i class="fas fa-chevron-right"></i>`
+        let emptySpaceFiller = `<span style="height: 56px;">&nbsp;</span>`
+
+        const timeStamp = new Date 
+        const day = timeStamp.getDay()
+        const hr = timeStamp.getHours()
+        const min = timeStamp.getMinutes()
+        const sec = timeStamp.getSeconds()
+        const timeToString = hr.toString()+min.toString()+sec.toString()
+        const parsedTime = parseInt(timeToString)
+        
         if (currentUser == "Pastor"){
           $(gateContents).insertAfter(".img-placer-gate")
           $(doorContents).insertAfter(".img-placer-door")
           $('.lock-holder').addClass('unlocked').append(lock)
-          $('.door-holder').addClass('door-locked').append(doorLock)
+          
+          if (day === 0 && parsedTime > 75930 && parsedTime < 145959){
+            $('.door-holder').addClass('door-locked').append(emptySpaceFiller)
+          } else {
+            $('.door-holder').addClass('door-locked').append(doorLock)
+          }
+          
           $('.front-door-holder').addClass('unlocked').append(lock)
           $('.page-2, .vl').removeClass('hidden')
           $('.left-arrow').append(leftArrow)
           $('.right-arrow').append(rightArrow)          
+          
         }},300);
     },
     hide: function (t) {
