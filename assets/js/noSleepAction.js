@@ -1,7 +1,7 @@
 let noSleep = new NoSleep;
 var wakeLockEnabled = false;
 let target = $('.no-sleep');
-console.log(target)
+// console.log(target)
 target.bind('touchstart click', function(){
   if (!wakeLockEnabled) {
     noSleep.enable(); // keep the screen on!
