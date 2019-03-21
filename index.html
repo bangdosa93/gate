@@ -1,109 +1,129 @@
 <html>
+  <head>
+    <title>Gate</title>
 
-<head>
-  <title>Gate</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
+    <link rel="shortcut icon" href="assets/img/favicon.png" />
+    <link rel="apple-touch-icon" href="assets/img/shortcut.png" />
+    <link href="assets/css/patternLock.css" rel="stylesheet" type="text/css" />
 
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+      integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"
+      integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="assets/css/application.css" />
+    <link rel="stylesheet" href="assets/css/animation.css" />
 
-  <link rel="shortcut icon" href="assets/img/favicon.png">
-  <link rel="apple-touch-icon" href="assets/img/shortcut.png">
-  <link href="assets/css/patternLock.css" rel="stylesheet" type="text/css" />
+    <script
+      src="https://cdn.onesignal.com/sdks/OneSignalSDK.js"
+      async=""
+    ></script>
 
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
-    crossorigin="anonymous">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ"
-    crossorigin="anonymous">
-  <link rel="stylesheet" href="assets/css/application.css">
-  <link rel="stylesheet" href="assets/css/animation.css">
-
-  <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
-
-  <script>
-    var OneSignal = window.OneSignal || [];
-    OneSignal.push(function () {
-      OneSignal.init({
-        appId: "6fdf003a-8011-4589-9544-dfde0361d641",
+    <script>
+      var OneSignal = window.OneSignal || [];
+      OneSignal.push(function() {
+        OneSignal.init({
+          appId: "6fdf003a-8011-4589-9544-dfde0361d641"
+        });
       });
-    });
-  </script>
+    </script>
 
+    <!--   <script src="https://cdn.pushassist.com/account/assets/psa-cateam.js" async="async"></script>  -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="assets/js/application.js"></script>
+    <script src="assets/js/gateController.js"></script>
+    <script src="assets/js/patternLock.js"></script>
+    <script src="assets/js/animationLock.js"></script>
+    <script src="assets/js/scroll.js"></script>
+    <script src="assets/js/authLocation.js"></script>
+  </head>
 
-
-  <!--   <script src="https://cdn.pushassist.com/account/assets/psa-cateam.js" async="async"></script>  -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
-  <script src="assets/js/application.js"></script>
-  <script src="assets/js/gateController.js"></script>
-  <script src="assets/js/patternLock.js"></script>
-  <script src="assets/js/animationLock.js"></script>
-  <script src="assets/js/scroll.js"></script>
-  
-
-</head>
-
-<body>
-  <div class="mhn-ui-wrap">
-    <div class="mhn-ui-page page-lock">
-      <div class="mhn-ui-date-time">
-        <div class="mhn-ui-time"></div>
-        <div class="mhn-ui-day"></div>
-        <div class="mhn-ui-date"></div>
-      </div>
-      <div class="mhn-lock-wrap">
-        <div class="mhn-lock-title" data-title="Draw a pattern to unlock"></div>
-        <div class="mhn-lock"></div>
-      </div>
-    </div>
-
-    <div class="mhn-ui-page page-home">
-      <div class="mhn-ui-app-time">&nbsp;</div>
-      <div class="mhn-ui-app-title-head header">
-        <span class="mhn-ui-page-title no-sleep">Logged in as &nbsp;</span>
-        <a id="logout" class="">Logout</a>
-      </div>
-      <div class="content-wrapper scrolling-wrapper ">
-        <div class="page-nav">
-          <div class="left-arrow"> </div>
-          <div class="right-arrow"></div>
+  <body>
+    <div class="mhn-ui-wrap">
+      <div class="mhn-ui-page page-lock">
+        <div class="mhn-ui-date-time">
+          <div class="mhn-ui-time"></div>
+          <div class="mhn-ui-day"></div>
+          <div class="mhn-ui-date"></div>
         </div>
-        
-        <div id="1" class="mhn-ui-row mhn-ui-apps cards page-1">
-          <div>
-            <div class="animation-wrapper">
-              <!-- <h1 class="text-center lock-holder animated"></h1> -->
-              <h1 class="text-center door-holder animated" style="color:#fb9b51"></h1>
+        <div class="mhn-lock-wrap">
+          <div
+            class="mhn-lock-title"
+            data-title="Draw a pattern to unlock"
+          ></div>
+          <div class="mhn-lock"></div>
+        </div>
+      </div>
+
+      <div class="mhn-ui-page page-home">
+        <div class="mhn-ui-app-time">&nbsp;</div>
+        <div class="mhn-ui-app-title-head header">
+          <span class="mhn-ui-page-title no-sleep">Logged in as &nbsp;</span>
+          <a id="logout" class="">Logout</a>
+        </div>
+        <div class="content-wrapper scrolling-wrapper ">
+          <div class="page-nav">
+            <div class="left-arrow"></div>
+            <div class="right-arrow"></div>
+          </div>
+
+          <div id="1" class="mhn-ui-row mhn-ui-apps cards page-1">
+            <div>
+              <div class="animation-wrapper">
+                <!-- <h1 class="text-center lock-holder animated"></h1> -->
+                <h1
+                  class="text-center door-holder animated"
+                  style="color:#fb9b51"
+                ></h1>
+              </div>
+              <div class="contents text-center">
+                <div class="img-placer-gate"></div>
+                <br />
+                <button
+                  class="btn btn-danger gate-button"
+                  type="button"
+                  id="clickON"
+                >
+                  OPEN GATE
+                </button>
+              </div>
             </div>
-            <div class="contents text-center">
-              <div class="img-placer-gate"></div>
-              <br>
-              <button class="btn btn-danger gate-button" type="button" id="clickON">OPEN GATE</button>
+          </div>
+          <div class="vl hidden"></div>
+          <div id="2" class="mhn-ui-row mhn-ui-apps cards page-2 hidden">
+            <div>
+              <div class="animation-wrapper">
+                <h1 class="text-center front-door-holder animated"></h1>
+              </div>
+              <div class="contents text-center">
+                <div class="img-placer-door"></div>
+                <br />
+                <button
+                  class="btn btn-danger door-button"
+                  type="button"
+                  id="openFrontDoor"
+                >
+                  OPEN FRONT DOOR
+                </button>
+              </div>
             </div>
           </div>
         </div>
-        <div class="vl hidden"></div>
-        <div id="2" class="mhn-ui-row mhn-ui-apps cards page-2 hidden">
-          <div>
-            <div class="animation-wrapper">
-              <h1 class="text-center front-door-holder animated"></h1>
-
-            </div>
-            <div class="contents text-center">
-              <div class="img-placer-door"></div>
-              <br>
-              <button class="btn btn-danger door-button" type="button" id="openFrontDoor">OPEN FRONT DOOR</button>
-            </div>
-          </div>
-        
-        </div>
       </div>
     </div>
-  </div>
 
     <script src="assets/js/noSleep.js"></script>
     <script src="assets/js/noSleepAction.js"></script>
-  
-</body>
-
+  </body>
 </html>
