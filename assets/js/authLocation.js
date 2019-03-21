@@ -1,12 +1,12 @@
 $(window).on("load", function() {
   $(".mhn-lock-wrap").css("display", "none");
 
-  // const originLat = 37.7829427;
-  // const originLon = -122.4309525;
+  const originLat = 37.7829427;
+  const originLon = -122.4309525;
 
   //test out of range location
-  const originLat = 38.7829427;
-  const originLon = -122.4309525;
+  // const originLat = 38.7829427;
+  // const originLon = -122.4309525;
 
   function success(position) {
     const latitude = position.coords.latitude;
