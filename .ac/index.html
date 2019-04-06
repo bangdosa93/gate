@@ -1,174 +1,180 @@
 <html>
+  <head>
+    <title>Gate</title>
 
-<head>
-  <title>Gate</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="favicon.png" />
+    <link rel="apple-touch-icon" href="shortcut.png" />
+    <link href="patternLock.css" rel="stylesheet" type="text/css" />
 
-  <link rel="shortcut icon" href="favicon.png">
-  <link rel="apple-touch-icon" href="shortcut.png">
-  <link href="patternLock.css" rel="stylesheet" type="text/css" />
-  
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
-    crossorigin="anonymous">
-  <link rel="stylesheet" href="secret.css">
-  <link rel="stylesheet" href="application.css">
-  
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
-  <script src="application.js"></script>
-  <script src="patternLock.js"></script>
-  
-  <script type="text/javascript">
-	    var alarmOff = function () {
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+      integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="secret.css" />
+    <link rel="stylesheet" href="application.css" />
 
-      var b = new XMLHttpRequest();
-      b.open("GET", "alarmOff.php");
-      b.onreadystatechange = function () {
-        if (b.readyState == 4) {
-          if (b.status == 200) {
-          }
-          else {
-            alert("HTTP ERRORS");
-          }
-        }
-      }
-      b.send();
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="application.js"></script>
+    <script src="patternLock.js"></script>
+    <script
+      async
+      defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB7dgSi_MHkDGN44jJynDa6gvmuXd0Fu1M&callback=initMap"
+      type="text/javascript"
+    ></script>
 
-	}
- 
-    var signalOff = function () {
-
-      var b = new XMLHttpRequest();
-      b.open("GET", "pinoff.php");
-      b.onreadystatechange = function () {
-        if (b.readyState == 4) {
-          if (b.status == 200) {
-          }
-          else {
-            alert("HTTP ERRORS");
-          }
-        }
-      }
-      b.send();
-
-      $('#clickON').addClass("btn-danger").removeClass("btn-success");
-      $('#clickON').prop('disabled', false);
-
-	}
-    $(document).ready(function (){
-	setInterval(function(){
-var b = new XMLHttpRequest();
-    b.open("GET", "pinoff.php");
-    b.onreadystatechange = function () {
-      if (b.readyState == 4) {
-        if (b.status == 200) {
-          console.log("pinOff successful")
-        }
-        else {
-          console.log("HTTP ERROR")
-        }
-      }
-    }
-    b.send();
-  },10000)
-
-
-
-
-      $('#clickON').on('touchstart', function (e) {
-        var a = new XMLHttpRequest();
-        a.open("GET", "pinon.php");
-        a.onreadystatechange = function () {
-          if (a.readyState == 4) {
-            if (a.status == 200) {
-            }
-            else {
+    <script type="text/javascript">
+      var alarmOff = function() {
+        var b = new XMLHttpRequest();
+        b.open("GET", "alarmOff.php");
+        b.onreadystatechange = function() {
+          if (b.readyState == 4) {
+            if (b.status == 200) {
+            } else {
               alert("HTTP ERRORS");
             }
           }
-        }
-        a.send();
+        };
+        b.send();
+      };
 
-        $('#clickON').addClass("btn-success").removeClass("btn-danger");
-
-        setTimeout(function () {
-          $('#clickON').prop('disabled', true);
-          signalOff();
-        }, 100);
-
-	setTimeout(function () {
-		alarmOff();
-	},1000);
-      })
-      
-      $('#clickON').on('click', function (e) {
-        
-        var a = new XMLHttpRequest();
-        a.open("GET", "pinon.php");
-        a.onreadystatechange = function () {
-          if (a.readyState == 4) {
-            if (a.status == 200) {
-            }
-            else {
+      var signalOff = function() {
+        var b = new XMLHttpRequest();
+        b.open("GET", "pinoff.php");
+        b.onreadystatechange = function() {
+          if (b.readyState == 4) {
+            if (b.status == 200) {
+            } else {
               alert("HTTP ERRORS");
             }
           }
-        }
-        a.send();
+        };
+        b.send();
 
-        $('#clickON').addClass("btn-success").removeClass("btn-danger");
-	
-	setTimeout(function () {
-          alarmOff();
+        $("#clickON")
+          .addClass("btn-danger")
+          .removeClass("btn-success");
+        $("#clickON").prop("disabled", false);
+      };
+      $(document).ready(function() {
+        setInterval(function() {
+          var b = new XMLHttpRequest();
+          b.open("GET", "pinoff.php");
+          b.onreadystatechange = function() {
+            if (b.readyState == 4) {
+              if (b.status == 200) {
+                console.log("pinOff successful");
+              } else {
+                console.log("HTTP ERROR");
+              }
+            }
+          };
+          b.send();
+        }, 10000);
 
-        }, 1000);
+        $("#clickON").on("touchstart", function(e) {
+          var a = new XMLHttpRequest();
+          a.open("GET", "pinon.php");
+          a.onreadystatechange = function() {
+            if (a.readyState == 4) {
+              if (a.status == 200) {
+              } else {
+                alert("HTTP ERRORS");
+              }
+            }
+          };
+          a.send();
 
-         setTimeout(function () {
-          $('#clickON').prop('disabled', true);
-          signalOff();
+          $("#clickON")
+            .addClass("btn-success")
+            .removeClass("btn-danger");
 
-        }, 100);
-     })
-    
-    });
-  
-  
-  </script>
-</head>
+          setTimeout(function() {
+            $("#clickON").prop("disabled", true);
+            signalOff();
+          }, 100);
 
-<body>
-  <div class="mhn-ui-wrap">
-    <div class="mhn-ui-page page-lock">
-      <div class="mhn-ui-date-time">
-        <div class="mhn-ui-time"></div>
-        <div class="mhn-ui-day"></div>
-        <div class="mhn-ui-date"></div>
+          setTimeout(function() {
+            alarmOff();
+          }, 1000);
+        });
+
+        $("#clickON").on("click", function(e) {
+          var a = new XMLHttpRequest();
+          a.open("GET", "pinon.php");
+          a.onreadystatechange = function() {
+            if (a.readyState == 4) {
+              if (a.status == 200) {
+              } else {
+                alert("HTTP ERRORS");
+              }
+            }
+          };
+          a.send();
+
+          $("#clickON")
+            .addClass("btn-success")
+            .removeClass("btn-danger");
+
+          setTimeout(function() {
+            alarmOff();
+          }, 1000);
+
+          setTimeout(function() {
+            $("#clickON").prop("disabled", true);
+            signalOff();
+          }, 100);
+        });
+      });
+    </script>
+  </head>
+
+  <body>
+    <div class="mhn-ui-wrap">
+      <div class="mhn-ui-page page-lock">
+        <div class="mhn-ui-date-time">
+          <div class="mhn-ui-time"></div>
+          <div class="mhn-ui-day"></div>
+          <div class="mhn-ui-date"></div>
+        </div>
+        <div class="mhn-lock-wrap">
+          <div
+            class="mhn-lock-title"
+            data-title="Draw a pattern to unlock"
+          ></div>
+          <div class="mhn-lock"></div>
+        </div>
       </div>
-      <div class="mhn-lock-wrap">
-        <div class="mhn-lock-title" data-title="Draw a pattern to unlock"></div>
-        <div class="mhn-lock"></div>
-      </div>
-    </div>
-  
-    <div class="mhn-ui-page page-home">
-      <div class="mhn-ui-app-time">&nbsp;</div>
+
+      <div class="mhn-ui-page page-home">
+        <div class="mhn-ui-app-time">&nbsp;</div>
         <div class="mhn-ui-app-title-head">
           <span class="mhn-ui-page-title">Gate</span>
         </div>
         <div class="mhn-ui-row mhn-ui-apps">
           <div>
-            <h1>&nbsp;</h1><div class="contents text-center">
+            <h1>&nbsp;</h1>
+            <div class="contents text-center">
               <div class="contents text-center">
-	<img class="rounded img-fluid" style="-webkit-user-select: none;" src="http://stream.cateam.org/">	
-                <br><button class="btn btn-danger" type="button" id="clickON">OPEN GATE</button>
+                <img
+                  class="rounded img-fluid"
+                  style="-webkit-user-select: none;"
+                  src="http://stream.cateam.org/"
+                />
+                <br /><button class="btn btn-danger" type="button" id="clickON">
+                  OPEN GATE
+                </button>
               </div>
             </div>
           </div>
         </div>
+      </div>
     </div>
-  </div>
-</body>
-
+  </body>
 </html>

@@ -9,23 +9,40 @@ $(window).on("load", function() {
   // const originLon = -122.4309525;
 
   function success(position) {
-    const latitude = position.coords.latitude;
-    const longitude = position.coords.longitude;
+    // const latitude = position.coords.latitude;
+    // const longitude = position.coords.longitude;
+    let latitude, longitude;
 
-    while (!latitude && !longitude) {
-      console.log("Locating...");
-    }
+    $.getJSON(
+      "https://maps.googleapis.com/maps/api/geocode/json?address=94115&key=AIzaSyB7dgSi_MHkDGN44jJynDa6gvmuXd0Fu1M",
+      function(data, status) {
+        console.log("Locating...");
 
-    let dist = calcDist(originLon, originLat, longitude, latitude);
-    $(".mhn-lock-wrap").css("display", "block");
-    if (dist > 5) {
-      $(".mhn-lock").css("display", "none");
-      $(".mhn-lock-title")
-        .css("margin-bottom", "200px")
-        .css("font-size", "1rem")
-        .html(
-          "<p>You are currently outside of remote range.<br>Please try again later.</p>"
-        );
+        if (status === "success") {
+          position.coords.latitude = data.results[0].geometry.location.lat;
+          position.coords.longitude = data.results[0].geometry.location.lng;
+          latitude = position.coords.latitude;
+          longitude = position.coords.longitude;
+          console.log(longitude, latitude);
+          locationOnSuccess(longitude, latitude);
+        } else {
+          // locationOnError();
+        }
+      }
+    );
+
+    function locationOnSuccess() {
+      let dist = calcDist(originLon, originLat, longitude, latitude);
+      $(".mhn-lock-wrap").css("display", "block");
+      if (dist > 1) {
+        $(".mhn-lock").css("display", "none");
+        $(".mhn-lock-title")
+          .css("margin-bottom", "200px")
+          .css("font-size", "1rem")
+          .html(
+            "<p>You are currently outside of remote range.<br>Please try again later.</p>"
+          );
+      }
     }
   }
 
