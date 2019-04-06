@@ -7,43 +7,35 @@ $(window).on("load", function() {
   //test out of range location
   // const originLat = 38.7829427;
   // const originLon = -122.4309525;
+  console.log("Origin Location: ", originLat, originLon);
 
-  function success(position) {
-    // const latitude = position.coords.latitude;
-    // const longitude = position.coords.longitude;
-    let latitude, longitude;
+  function locationOnSuccess(latitude, longitude) {
+    let dist = calcDist(originLon, originLat, longitude, latitude);
+    console.log("Distance: ", dist.toFixed(2), "mi.");
+    $(".mhn-lock-wrap").css("display", "block");
+    if (dist > 1) {
+      $(".mhn-lock").css("display", "none");
+      $(".mhn-lock-title")
+        .css("margin-bottom", "200px")
+        .css("font-size", "1rem")
+        .html(
+          "<p>You are currently outside of remote range.<br>Please try again later.</p>"
+        );
+    }
+  }
+  function getIP() {
+    console.log("Locating...");
+    $.getJSON("http://ip-api.com/json", function(data, status) {
+      if (status === "success") {
+        console.log("Success!!");
 
-    $.getJSON(
-      "https://maps.googleapis.com/maps/api/geocode/json?address=94115&key=AIzaSyB7dgSi_MHkDGN44jJynDa6gvmuXd0Fu1M",
-      function(data, status) {
-        console.log("Locating...");
+        if (data.lat && data.lon) {
+          console.log("User Location: ", data.lat, data.lon);
 
-        if (status === "success") {
-          position.coords.latitude = data.results[0].geometry.location.lat;
-          position.coords.longitude = data.results[0].geometry.location.lng;
-          latitude = position.coords.latitude;
-          longitude = position.coords.longitude;
-          console.log(longitude, latitude);
-          locationOnSuccess(longitude, latitude);
-        } else {
-          // locationOnError();
+          locationOnSuccess(data.lat, data.lon);
         }
       }
-    );
-
-    function locationOnSuccess() {
-      let dist = calcDist(originLon, originLat, longitude, latitude);
-      $(".mhn-lock-wrap").css("display", "block");
-      if (dist > 1) {
-        $(".mhn-lock").css("display", "none");
-        $(".mhn-lock-title")
-          .css("margin-bottom", "200px")
-          .css("font-size", "1rem")
-          .html(
-            "<p>You are currently outside of remote range.<br>Please try again later.</p>"
-          );
-      }
-    }
+    });
   }
 
   function error() {
@@ -82,6 +74,6 @@ $(window).on("load", function() {
   if (!navigator.geolocation) {
     alert("Geolocation is not supported by your browser");
   } else {
-    navigator.geolocation.getCurrentPosition(success, error);
+    getIP();
   }
 });
