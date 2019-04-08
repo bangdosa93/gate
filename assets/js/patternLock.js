@@ -217,7 +217,7 @@
 
   const patternLib = {
     "14523": "Limited User",
-    "12569": "Pastor",
+    "12569": "Authorized User",
     "968543": "Admin"
   };
 

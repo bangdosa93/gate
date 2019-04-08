@@ -7,12 +7,24 @@ const originLon = -122.4309525;
 // const originLat = 38.7829427;
 // const originLon = -122.4309525;
 console.log("Origin Location: ", originLat, originLon);
-
+function getCurrentTime() {
+  const timeStamp = new Date();
+  const day = timeStamp.getDay();
+  const hr = timeStamp.getHours();
+  const min = timeStamp.getMinutes();
+  const sec = timeStamp.getSeconds();
+  const timeToString =
+    hr.toString() +
+    (min.toString().length == 1 ? "0" + min.toString() : min.toString()) +
+    (sec.toString().length == 1 ? "0" + sec.toString() : sec.toString());
+  const parsedTime = parseInt(timeToString);
+  return parsedTime;
+}
 function locationOnSuccess(latitude, longitude) {
   let dist = calcDist(originLon, originLat, longitude, latitude);
   console.log("Distance: ", dist.toFixed(2), "mi.");
   $(".mhn-lock-wrap").css("display", "block");
-  if (dist > 3) {
+  if (dist > 100) {
     $(".mhn-lock").css("display", "none");
     $(".mhn-lock-title")
       .css("margin-bottom", "200px")
@@ -29,39 +41,38 @@ function locationOnSuccess(latitude, longitude) {
     let rightArrow = `<i class="fas fa-chevron-right"></i>`;
     let emptySpaceFiller = `<span style="height: 56px;">&nbsp;</span>`;
 
+    let parsedTime = getCurrentTime();
     const timeStamp = new Date();
     const day = timeStamp.getDay();
-    const hr = timeStamp.getHours();
-    const min = timeStamp.getMinutes();
-    const sec = timeStamp.getSeconds();
-    const timeToString = hr.toString() + min.toString() + sec.toString();
-    const parsedTime = parseInt(timeToString);
+
     $(".mhn-lock").css("display", "none");
     $(".mhn-lock-title").html('<span class="mhn-lock-success">Unlocked</span>');
     $(".patt-holder").addClass("patt-success");
 
-    $(gateContents).insertAfter(".img-placer-gate");
-    $(doorContents).insertAfter(".img-placer-door");
-    $(".lock-holder")
-      .addClass("unlocked")
-      .append(lock);
+    if (currentUser !== "Limited User") {
+      $(gateContents).insertAfter(".img-placer-gate");
+      $(doorContents).insertAfter(".img-placer-door");
+      $(".lock-holder")
+        .addClass("unlocked")
+        .append(lock);
 
-    if (day === 0 && parsedTime > 75930 && parsedTime < 145959) {
-      $(".door-holder")
-        .addClass("door-locked")
-        .append(emptySpaceFiller);
-    } else {
-      $(".door-holder")
-        .addClass("door-locked")
-        .append(doorLock);
+      if (day === 0 && parsedTime > 75930 && parsedTime < 145959) {
+        $(".door-holder")
+          .addClass("door-locked")
+          .append(emptySpaceFiller);
+      } else {
+        $(".door-holder")
+          .addClass("door-locked")
+          .append(doorLock);
+      }
+
+      $(".front-door-holder")
+        .addClass("unlocked")
+        .append(lock);
+      $(".page-2, .vl").removeClass("hidden");
+      $(".left-arrow").append(leftArrow);
+      $(".right-arrow").append(rightArrow);
     }
-
-    $(".front-door-holder")
-      .addClass("unlocked")
-      .append(lock);
-    $(".page-2, .vl").removeClass("hidden");
-    $(".left-arrow").append(leftArrow);
-    $(".right-arrow").append(rightArrow);
   }
 }
 function getIP() {
@@ -112,12 +123,6 @@ function calcDist(lon1, lat1, lon2, lat2, unit) {
   }
 }
 
-if (!navigator.geolocation) {
-  alert("Geolocation is not supported by your browser");
-} else {
-  // getIP();
-}
-
 $(function() {
   mhnUI.setup();
 });
@@ -154,7 +159,21 @@ mhnUI = {
               }, 300);
           } else {
             window.currentUser = currentUser;
-            getIP();
+
+            window.parsedTime = getCurrentTime();
+            if (window.parsedTime >= 00001 && window.parsedTime <= 35959) {
+              // if (true) {
+              $(".mhn-lock").css("display", "none");
+              $(".mhn-lock-title")
+                .css("margin-bottom", "200px")
+                .css("font-size", "1.5rem")
+                .css("line-height", "30px")
+                .html(
+                  "<p>\uC2DC\uC2A4\uD15C \uC810\uAC80\uC911...<br>0:00:00 ~ 3:59:59</p>"
+                );
+            } else {
+              getIP();
+            }
           }
         },
         function() {
@@ -240,7 +259,7 @@ mhnUI = {
           const sec = timeStamp.getSeconds();
           const timeToString = hr.toString() + min.toString() + sec.toString();
           const parsedTime = parseInt(timeToString);
-
+          window.parsedTime = parsedTime;
           if (currentUser == "Admin") {
             $(gateContents).insertAfter(".img-placer-gate");
             $(doorContents).insertAfter(".img-placer-door");
