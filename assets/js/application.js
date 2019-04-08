@@ -12,7 +12,7 @@ function locationOnSuccess(latitude, longitude) {
   let dist = calcDist(originLon, originLat, longitude, latitude);
   console.log("Distance: ", dist.toFixed(2), "mi.");
   $(".mhn-lock-wrap").css("display", "block");
-  if (dist > 3) {
+  if (dist > 1) {
     $(".mhn-lock").css("display", "none");
     $(".mhn-lock-title")
       .css("margin-bottom", "200px")
