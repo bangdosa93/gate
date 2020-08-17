@@ -81,7 +81,7 @@ let doorOpen = function () {
 
 let unlockFrontDoor = function () {
   let ufd = new XMLHttpRequest();
-  ufd.open("GET", "http://door.cateam.org/utils/unlockFrontDoor.php", true);
+  ufd.open("GET", "http://door.fgsf.org/utils/unlockFrontDoor.php", true);
   ufd.onreadystatechange = function () {
     if (ufd.readyState == 4) {
       if (ufd.status == 200) {
@@ -99,7 +99,7 @@ let unlockFrontDoor = function () {
 let openFrontDoor = function () {
   let ofd = new XMLHttpRequest();
   // ofd.open("GET", "../../utils/frontDoor/openFrontDoor.php");
-  ofd.open("GET", "http://door.cateam.org/utils/openFrontDoor.php", true);
+  ofd.open("GET", "http://door.fgsf.org/utils/openFrontDoor.php", true);
   ofd.onreadystatechange = function () {
     if (ofd.readyState == 4) {
       if (ofd.status == 200) {

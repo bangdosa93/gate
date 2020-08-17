@@ -660,5 +660,5 @@ mhnUI = {
     }),
     (e.PatternLock = s);
 })(jQuery, window, document);
-const gateContents = `<img class="rounded img-fluid" style="-webkit-user-select: none;" src="http://stream.cateam.org/">`;
-const doorContents = `<img class="rounded img-fluid" style="-webkit-user-select: none;" src="http://door-stream.cateam.org/">`;
+const gateContents = `<img class="rounded img-fluid" style="-webkit-user-select: none;" src="http://stream.fgsf.org/">`;
+const doorContents = `<img class="rounded img-fluid" style="-webkit-user-select: none;" src="http://door-stream.fgsf.org/">`;
